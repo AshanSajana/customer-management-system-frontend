@@ -1,70 +1,125 @@
-# Getting Started with Create React App
+#  Customer Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack **Customer Management System** built with **Spring Boot** (backend) and **React** (frontend).  
+This application supports efficient customer data handling, including **high-performance Excel bulk uploads** using streaming techniques.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+##  Features
 
-### `npm start`
+-  Add, update, delete customers
+-  Bulk upload customers via Excel
+-  High-performance processing using Alibaba EasyExcel
+-  RESTful API with Spring Boot
+-  Responsive frontend with React
+-  MySQL/MariaDB database integration
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+##  Tech Stack
 
-### `npm test`
+### Backend
+- Java 8
+- Spring Boot
+- Spring Data JPA
+- Maven
+- MySQL / MariaDB
+- Alibaba EasyExcel
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Frontend
+- React.js
+- Axios
+- HTML, CSS, JavaScript
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##  Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+Customer-Management-System/
+│
+├── backend/
+├── frontend/
+└── README.md
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+##  Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+> **Note**: Make sure you have completed the installation of Java 8, Node.js, and MariaDB before proceeding.
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+##  Step 1: Database Setup
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+First, you will need to prepare your database environment.
+1. Open your database tool.
+2. Create a new database:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```sql
+CREATE DATABASE customer_db;
+```
 
-## Learn More
+Update:
+```
+backend/src/main/resources/application.properties
+```
+update your database username and password.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+##  Step 2: Start the Backend (Spring Boot)
 
-### Code Splitting
+To start the Java server, open a terminal window in the backend folder:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+cd backend
+mvn clean install
+mvn spring-boot:run
+```
+If the server starts correctly, the API will be available at http://localhost:8080.
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+##  Step 3: Start the Frontend (React)
 
-### Making a Progressive Web App
+With the backend running, open a new terminal window in the frontend folder 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+cd frontend
+npm install
+npm start
+```
+If everything is set up correctly, your browser will automatically open http://localhost:3000 showing the Customer Management System.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+##  Bulk Upload
 
-### Deployment
+Now that the app is running, you can test the Advanced Excel Upload:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Name
+- DOB
+- NIC
+- Mobiles
+- Addresses
 
-### `npm run build` fails to minify
+Use the Bulk Upload panel at the top of the web page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## More..
+
+- Modify the UI: Open frontend/src/App.js to change the styling or layout.
+- Expand the API: Open backend/src/main/java/.../CustomerController.java to add new endpoints.
+- Learn More: Check out the [Spring Boot Docs](https://spring.io/projects/spring-boot) or [React Docs](https://react.dev/)
+
+---
+
+##  Troubleshooting
+
+If you encounter a 500 Error during upload, check the IntelliJ console for DateTimeParseException. Ensure your Excel dates are in YYYY-MM-DD or YYYY/MM/DD format.
+
+---
+
+
+
